@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Royal Panther</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -44,7 +44,7 @@
                                 Thông Báo
                             </a> 
                             <div class="header__notify">
-                                <header class="header__notify-header">
+                                <header class="header_navbar-icon">
                                     <h3>Thông báo mới nhận</h3>
                                 </header>
                                 <ul class="header__notify-list">
@@ -105,8 +105,24 @@
                                     Hỗ Trợ
                             </a> 
                         </li>
-                        <li class="header__navbar-item header__navbar-item--separate">Đăng Ký</li>
-                        <li class="header__navbar-item">Đăng Nhập</li>
+                        <!-- <li class="header__navbar-item header__navbar-item--separate">Đăng Ký</li>
+                        <li class="header__navbar-item">Đăng Nhập</li> -->
+                        <li class="header__navbar-item header__navbar-user">
+                            <img src="https://avatar-redirect.appspot.com/google/110062608047138717776?size=400" alt="" class="header__navbar-user-avt">
+                            <span class="header__navbar-user-name">Nguyễn Xuân Dũng</span>
+
+                            <ul class="header__navbar-user-menu">
+                                <li class="header__navbar-user-menu-item">
+                                    <a href="">Tài Khoản Của Tôi</a>
+                                </li>
+                                <li class="header__navbar-user-menu-item">
+                                    <a href="">Đơn Mua</a>
+                                </li>
+                                <li class="header__navbar-user-menu-item">
+                                    <a href="">Đăng Xuất</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>    
 
@@ -140,16 +156,72 @@
                             <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
                     </div>
-
+                    
+                    <!-- Cart -->
                     <div class="header__cart">
-                        <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        <div class="header__cart-wrap">
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                            <span class="header__cart-wrap--notice">3</span>
+
+                            <!-- No Cart: header__cart-list--no-cart -->
+                            <div class="header__cart-list ">
+                                <img src="/assets/img/no-cart.png" alt="" class="header__cart-list--no-cart-img">
+                                <span class="header__cart-list--messenge">Chưa có sản phẩm</span>
+
+                                <h4 class="header__cart-heading">Sản Phẩm Mới Thêm</h4>
+                                <ul class="header__cart-list-item">
+                                    <!-- Cart Item -->
+                                    <li class="header__cart-item">
+                                        <img src="./assets/img/Aothethao1.jpg" alt="" class="header__cart-item-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">Áo thể thao thấm mồ hôi</h5>
+                                                <div class="header__cart-item-wrap">
+                                                    <span class="header__cart-item-price">₫500.000</span>
+                                                    <span class="header__cart-item-multiply">x</span>
+                                                    <span class="header__cart-item-quatity">1</span>
+                                               </div>
+                                           </div>
+                                        </div>
+                                    </li>
+                                    <li class="header__cart-item">
+                                        <img src="./assets/img/Daibaovedaugoi1.jpg" alt="" class="header__cart-item-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">Đai bảo vệ đầu gối</h5>
+                                                <div class="header__cart-item-wrap">
+                                                    <span class="header__cart-item-price">₫150.000</span>
+                                                    <span class="header__cart-item-multiply">x</span>
+                                                    <span class="header__cart-item-quatity">2</span>
+                                               </div>
+                                           </div>
+                                        </div>
+                                    </li>
+                                    <li class="header__cart-item">
+                                        <img src="./assets/img/Gangtay1.png" alt="" class="header__cart-item-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">Găng tay chóng chai, thô ráp</h5>
+                                                <div class="header__cart-item-wrap">
+                                                    <span class="header__cart-item-price">₫75.000</span>
+                                                    <span class="header__cart-item-multiply">x</span>
+                                                    <span class="header__cart-item-quatity">2</span>
+                                               </div>
+                                           </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <a href="#" class="header__cart-view-cart btn btn-primary">Xem Giỏ Hàng</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
 
         <div class="container">
-
+            
         </div>
 
         <footer class="footer">
