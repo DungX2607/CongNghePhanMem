@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>N2-shop</title>
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+        <meta http-equiv="X-UA-compatible" content="IE=edge">
+
+        
+
+
+    </head>
+    <body>
+        <section id="header">
+            <a href="#"><img src="images/logo2.svg" width="125px" class="logo"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a  href="index3.html">Home</a></li>
+                    <li><a class = "active" href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html"><img src="images/shopping-cart.svg" width="30px" height="30px"></a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="prodetails" class="section-p1" >
+            <div class="single-pro-image">
+                <img src="images/a1.jpg" width="100%" id="mainimg" alt="">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="images/a2.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/a3.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/a4.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/a5.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / Tshirts</h6>
+                <h4>Men's Fashion T Shirt</h4>
+                <h2>500.000vnd</h2>
+                <select>
+                    <option>Select size</option>
+                    <option>XXL</option>
+                    <option>XL</option>
+                    <option>L</option>
+                    <option>M</option>
+                    <option>S</option>
+                </select>
+                <input type="number" value="1">
+                <button class="normal">Add To Cart</button>
+                <h4>Product Details</h4>
+                <span>High-waisted cigarette pants with pronounced seams.
+                     Front welt pockets. Front zip, metal hook,
+                      and interior button closure.</span>
+            </div>
+        </section>
+        
+
+       
+
+
+        <footer class="section-p1">
+            <div class="col">
+                <img src="images/logo1.png">  
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> 96A, Tran Phu, Mo Lao Ward, Ha Dong, Hanoi</p>
+                <p><strong>Phone:</strong>+84 963 679 208</p>
+                <p><strong>Hours:</strong> 9:00 - 22:00, Mon - Sat</p>
+
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Term & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track my Order</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="col install"></div>
+            <h4>Install App</h4>
+            <p>From App Store to Google Play</p>
+            <div class="row">
+                <img src="images/pay/app.jpg">
+                <img src="images/pay/play.jpg">
+
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="images/pay/pay.png">
+        </footer>
+        
+
+          <script> var mainimg = document.getElementById("mainimg");
+                var smallimg=document.getElementsByClassName("small-img");
+                smallimg[0].onclick = function(){
+                    mainimg.src = smallimg[0].src;
+                }
+                smallimg[1].onclick = function(){
+                    mainimg.src = smallimg[1].src;
+                }
+                smallimg[2].onclick = function(){
+                    mainimg.src = smallimg[2].src;
+                }
+                smallimg[3].onclick = function(){
+                    mainimg.src = smallimg[3].src;
+                }
+                </script>
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+    </html>
