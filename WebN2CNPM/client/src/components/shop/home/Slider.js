@@ -65,13 +65,13 @@ const Slider = (props) => {
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">
-              <a
+              {/* <a
                 href="#shop"
                 style={{ background: "#303031" }}
                 className="cursor-pointer box-border text-2xl text-white px-4 py-2 rounded"
               >
                 Shop Now
-              </a>
+              </a> */}
             </div>
           </>
         ) : null}
