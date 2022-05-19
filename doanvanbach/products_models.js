@@ -3,6 +3,7 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const productSchema = new mongoose.Schema(
   {
+    // các đối tượng chứa các thuộc tính của sản phẩm khi tạo sản phẩm mới  và thuộc tính phần đánh giá sản phẩm
     pName: {
       type: String,
       required: true,
