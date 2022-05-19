@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 class Product {
-  // Delete Image from uploads -> products folder
+  
+  // truy nhập đến vị trí ảnh cần xóa (phần này hỗ trợ cho việc truy xuất đến đường dẫn ảnh khi thực hiện các thao tác xóa hay post,... product của admin 
   static deleteImages(images, mode) {
     var basePath =
       path.resolve(__dirname + "../../") + "/public/uploads/products/";
@@ -26,7 +27,8 @@ class Product {
       });
     }
   }
-
+  
+// show tất cả các sản phẩm lên trang chủ
   async getAllProduct(req, res) {
     try {
       let Products = await productModel
@@ -40,12 +42,14 @@ class Product {
       console.log(err);
     }
   }
-
+  
+// thêm sản phẩm lên trang chủ 
   async postAddProduct(req, res) {
     let { pName, pDescription, pPrice, pQuantity, pCategory, pOffer, pStatus } =
       req.body;
     let images = req.files;
-    // Validation
+    
+    // trường hợp thêm sản phẩm không thành công
     if (
       !pName |
       !pDescription |
@@ -58,14 +62,16 @@ class Product {
       Product.deleteImages(images, "file");
       return res.json({ error: "All filled must be required" });
     }
-    // Validate Name and description
+    
+    // các yêu cầu về tên và mô tả-description
     else if (pName.length > 255 || pDescription.length > 3000) {
       Product.deleteImages(images, "file");
       return res.json({
         error: "Name 255 & Description must not be 3000 charecter long",
       });
     }
-    // Validate Images
+    
+    // yêu cầu về thêm ảnh: cần tối thiểu 2 ảnh
     else if (images.length !== 2) {
       Product.deleteImages(images, "file");
       return res.json({ error: "Must need to provide 2 images" });
@@ -94,7 +100,8 @@ class Product {
       }
     }
   }
-
+  
+// chỉnh sửa thôn tin sản phẩm
   async postEditProduct(req, res) {
     let {
       pId,
@@ -109,7 +116,7 @@ class Product {
     } = req.body;
     let editImages = req.files;
 
-    // Validate other fileds
+    // server trả về lỗi khi các thông tin sửa không thỏa mãn dk
     if (
       !pId |
       !pName |
@@ -128,7 +135,7 @@ class Product {
         error: "Name 255 & Description must not be 3000 charecter long",
       });
     }
-    // Validate Update Images
+    // yêu cầu tối thiểu 2 ảnh
     else if (editImages && editImages.length == 1) {
       Product.deleteImages(editImages, "file");
       return res.json({ error: "Must need to provide 2 images" });
@@ -162,16 +169,18 @@ class Product {
     }
   }
 
+  // chức năng xóa sản phẩm
   async getDeleteProduct(req, res) {
-    let { pId } = req.body;
-    if (!pId) {
+    let { pId } = req.body;  
+    if (!pId) { // nếu sản phẩm không tìm thấy id
       return res.json({ error: "All filled must be required" });
     } else {
       try {
+        //xóa các dữ liệu của sản phẩm trên database
         let deleteProductObj = await productModel.findById(pId);
         let deleteProduct = await productModel.findByIdAndDelete(pId);
         if (deleteProduct) {
-          // Delete Image from uploads -> products folder
+          // truy nhập kiểm tra id và xóa ảnh sản phẩm
           Product.deleteImages(deleteProductObj.pImages, "string");
           return res.json({ success: "Product deleted successfully" });
         }
@@ -180,7 +189,7 @@ class Product {
       }
     }
   }
-
+// xem chi tiết mô tả sản phẩm
   async getSingleProduct(req, res) {
     let { pId } = req.body;
     if (!pId) {
@@ -199,7 +208,7 @@ class Product {
       }
     }
   }
-
+// tìm kiếm sản phẩm trong mục phân loại sản phẩm
   async getProductByCategory(req, res) {
     let { catId } = req.body;
     if (!catId) {
@@ -217,7 +226,7 @@ class Product {
       }
     }
   }
-
+// tìm kiếm trong bộ lọc theo giá sản phẩm
   async getProductByPrice(req, res) {
     let { price } = req.body;
     if (!price) {
@@ -236,7 +245,7 @@ class Product {
       }
     }
   }
-
+// show ra danh sách ưa thích
   async getWishProduct(req, res) {
     let { productArray } = req.body;
     if (!productArray) {
@@ -255,6 +264,7 @@ class Product {
     }
   }
 
+  //xem sản phẩm trong giỏ hàng
   async getCartProduct(req, res) {
     let { productArray } = req.body;
     if (!productArray) {
@@ -272,7 +282,7 @@ class Product {
       }
     }
   }
-
+//đưa ra đánh giá
   async postAddReview(req, res) {
     let { pId, uId, rating, review } = req.body;
     if (!pId || !rating || !review || !uId) {
@@ -325,6 +335,7 @@ class Product {
     }
   }
 
+  // xóa đánh giá - chức năng chỉ dành cho bên user
   async deleteReview(req, res) {
     let { rId, pId } = req.body;
     if (!rId) {
