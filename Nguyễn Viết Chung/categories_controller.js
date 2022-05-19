@@ -87,7 +87,6 @@ class Category {
 
         let deleteCategory = await categoryModel.findByIdAndDelete(cId);
         if (deleteCategory) {
-          // Delete Image from uploads -> categories folder 
           fs.unlink(filePath, (err) => {
             if (err) {
               console.log(err);
