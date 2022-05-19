@@ -24,7 +24,7 @@ class Auth {
     }
   }
 
-  /* User Registration/Signup controller  */
+  /* dang ki tai khoan  */
   async postSignup(req, res) {
     let { name, email, password, cPassword } = req.body;
     let error = {};
@@ -53,7 +53,7 @@ class Auth {
           };
           return res.json({ error });
         } else {
-          // If Email & Number exists in Database then:
+          // neu email va sdt da ton tai trong database:
           try {
             password = bcrypt.hashSync(password, 10);
             const data = await userModel.findOne({ email: email });
@@ -70,8 +70,8 @@ class Auth {
                 name,
                 email,
                 password,
-                // ========= Here role 1 for admin signup role 0 for customer signup =========
-                userRole: 1, // Field Name change to userRole from role
+                // role 1 cho admin dang ki role 0 cho khach hang
+                userRole: 1, // thay doi role
               });
               newUser
                 .save()
@@ -100,7 +100,7 @@ class Auth {
     }
   }
 
-  /* User Login/Signin controller  */
+  /* user dang nhap controller  */
   async postSignin(req, res) {
     let { email, password } = req.body;
     if (!email || !password) {
